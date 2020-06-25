@@ -1,0 +1,117 @@
+#search input
+{
+position:relative;
+z-index:19;	
+}
+#search img
+{
+	position:relative;
+	top:7px;
+	left:-25.6px;
+	width:21.6px;
+	height:21.6px;
+	background-color:white;	
+	z-index:20;
+	border-radius:0px 5px 5px 0px;
+}
+#search img:hover
+{
+background-color:transparent;
+}
+
+.header span
+{
+color:black;
+font-style:italic;
+font-size:40px;	
+}
+.lgn-form td
+{
+font-style:bold;	
+}
+input[type="text"],input[type="password"]
+{
+background-color:transparent;
+border-bottom-color:black;
+border-bottom-style:line;
+border:0px 0px 0px 1px;	
+}
+div.lgn-form
+{
+position:relative;
+top:20%;
+float:right;
+z-index:5;
+display:block;	
+background-color:transparent;
+box-shadow:1px 2px 5px black;
+padding:5px;
+border-radius:15px;
+filter:contrast(100%);
+}
+input,button,button:hover
+{
+border-radius:5px;	
+}
+body
+{
+color:rgba(255,255,255,0.9);
+background:linear-gradient(120deg,Dodgerblue,Royalblue,blue);		
+}
+#sp3
+{
+
+}
+button
+{
+background-color:rgba(128,0,255,1);
+}
+content
+{
+display:block;
+position:static;
+}
+#sp1
+{
+display:block;	
+}
+.dbtn
+{
+float:right;	
+}
+#sp2
+{
+
+width:100%;
+}
+.dbtn:hover
+{
+float:right;
+background-color:white;
+color:purple;
+transform:scale(1.1);	
+}
+.dicon
+{
+width:50px;
+height:50px;
+float:left;	
+}
+.dc
+{	position:relative;
+	padding:5px;
+	border-radius:12px;
+	box-shadow:1px 2px 5px black; 
+	width:300px;
+	height:100px;
+	margin:10px;
+}
+
+div.footer
+{
+	padding:5px;
+	margin-top:60px;
+	border-radius:3px;
+	top:60%;
+    background-color: rgb(0, 0, 81);	
+}
