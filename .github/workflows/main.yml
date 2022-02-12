@@ -16,7 +16,7 @@ on:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
-  build:
+  deploy-on-ftp:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
     environment: ftp_cred
@@ -24,31 +24,22 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
-
-      # Runs a single command using the runners shell
-      #- name: Run a one-line script
-      #  run: ls
-      #- name: Compiling C Program
-      #  run: |
-      #   cd C
-      #   gcc -v
-      #   gcc sample.c -o sample
-      #   ./sample
-      # Runs a set of commands using the runners shell
-      - name: Uploading Files to a Ftp Server 
-        run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.
-          echo ${{secrets.FTP_SERVER}} 
+      # Syncing after every push and pullrequest on master 
       - name: 📂 Sync files
+      # Task Name 
         uses: SamKirkland/FTP-Deploy-Action@4.2.0
+      # Ftp Deploying Package 
         with:
           server: ftpupload.net
           username: ${{secrets.FTP_USER}}
-          password: ${{ secrets.FTP_PASS }}
+          password: ${{secrets.FTP_PASS}}
           server-dir: /htdocs/
+          # Excluding Other files in Repo
           exclude: |
             **/C*/*
+            **/.git*
+            **/.github*
+            **/.git*/**
             **/Python*/**
           
         
