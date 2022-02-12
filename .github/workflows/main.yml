@@ -48,7 +48,7 @@ jobs:
           password: ${{ secrets.FTP_PASS }}
           server-dir: /htdocs/
           exclude: |
-          **/C*
+          **/C*/*
           **/Python*/**
           **/node_modules/**
           fileToExclude.txt
