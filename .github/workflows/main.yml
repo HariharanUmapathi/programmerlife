@@ -39,7 +39,7 @@ jobs:
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
-          echo ${{ secrets.FTP_SERVER }}  
+          echo $FTP_SERVER  
       - name: 📂 Sync files
         uses: SamKirkland/FTP-Deploy-Action@4.2.0
         with:
