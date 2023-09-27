@@ -1,0 +1,10 @@
+Value of x is 10
+
+10 is stored at addr 65524
+10 is stored at addr 65524
+10 is stored at addr 65524
+10 is stored at addr 65524
+65524 is stored at addr 65520
+10 is stored at addr 65522
+
+Now x = 25

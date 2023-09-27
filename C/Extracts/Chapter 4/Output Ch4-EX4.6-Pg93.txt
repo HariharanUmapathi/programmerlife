@@ -1,0 +1,34 @@
+Enter the 1st String
+123456789012345
+1st String
+
+123456789012345
+
+Enter the 2nd String
+New York
+2nd String
+
+            New
+
+Enter the 3rd String
+3rd String
+
+           York
+
+Enter the 1st String
+123456789012
+1st String
+
+123456789012
+
+Enter the 2nd String
+New-York
+2nd String
+
+       New-York
+
+Enter the 3rd String
+London
+3rd String
+
+         London

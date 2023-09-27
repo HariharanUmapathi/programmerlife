@@ -1,0 +1,8 @@
+DELHI
+D is stored at address 170
+E is stored at address 171
+L is stored at address 172
+H is stored at address 173
+I is stored at address 174
+
+Length of the string = 5
