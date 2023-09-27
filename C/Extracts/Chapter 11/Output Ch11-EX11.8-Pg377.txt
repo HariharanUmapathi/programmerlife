@@ -1,0 +1,11 @@
+INPUT
+
+Washing_machine 5       7500
+Electric_iron   12      350
+Two_in_one      7       1250
+
+OUTPUT
+
+Washing_machine          5    7500.00
+Electric_iron           12     350.00
+Two_in_one               7    1250.00

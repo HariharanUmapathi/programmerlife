@@ -1,0 +1,7 @@
+Address of a = 65524
+Address of b = 65522
+
+a = 12, b = 4
+x = 42, y = 9
+
+a = 2, b = 7, z = 8

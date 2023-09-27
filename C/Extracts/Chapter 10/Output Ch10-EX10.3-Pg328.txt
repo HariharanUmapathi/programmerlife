@@ -1,0 +1,11 @@
+STUDENT        TOTAL
+Student[1]      193
+Student[2]      197
+Student[3]      164
+
+SUBJECT        TOTAL
+Subject 1       177
+Subject 2       156
+Subject 3       221
+
+Grand Total =   554
