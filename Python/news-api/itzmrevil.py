@@ -19,7 +19,7 @@ def singleArticle(article):
 def HomePage(url):
     #featured Posts
     print(url)
-    #os.system("curl "+url+" > temp.html")
+    os.system("curl "+url+" > temp.html")
     text=open("temp.html","rb").read().decode('utf-8')
     soup=bs(text,"html.parser")
     try:
@@ -33,8 +33,6 @@ def HomePage(url):
             temp["news-link"]=slide.figure.a.get('href')
             data.append(temp)
     except TypeError:
-        text.close()
         return False
 
-    text.close()
     return str({"data":data,"Images":len(soup.find_all("img")),"Links":len(soup.find_all("a")),"headlines":len(f_slides)}).encode('utf-8')

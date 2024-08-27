@@ -1,4 +1,4 @@
-from flask import Flask , jsonify
+from flask import Flask,send_file , jsonify
 import requests
 from news import getnews
 from itzmrevil import HomePage as hp
@@ -11,8 +11,11 @@ app.url_map.strict_slashes = False
 def index():
     return " Api for Tamil news website- SLATEKUCHI"
 
+@app.route('/temp.html')
+def temp():
+    return send_file("temp.html")
 
-@app.route("/Hariharan/<string>")
+@app.route("/get-article/<string>")
 def page(string):
     #news = getnews(string)
     news =sa(string)
