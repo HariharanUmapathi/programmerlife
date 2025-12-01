@@ -1,0 +1,409 @@
+/*Common Styles*/
+a.link {
+	color:var(--tertiary);
+}
+body {
+	width: 100%;
+}
+
+ul.list li,
+#skills li {
+	display: block;
+
+}
+
+#sidebar {
+	padding: 15px;
+}
+
+#phone {
+	font-family: monospace;
+	padding: 5px;
+	text-align: center;
+	font-size: 1rem;
+}
+
+.orange,
+.grad {
+	font-weight: 900;
+}
+
+:root {
+	--g1: linear-gradient(45deg, blue, dodgerblue);
+	--g2: linear-gradient(45deg, dodgerblue, blue);
+	--g3: linear-gradient(to left, green, orange, yellow, orange, green);
+	--c1: #5d5c61;
+	--c2: #379683;
+	--c3: #7395AE;
+	--c4: #557a95;
+	--c5: #b1a296;
+	--c6: #1a1a1d;
+	--tertiary: #0088cc;
+}
+
+body {
+	background-color: #ff9d00 !important;
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 1600 800'%3E%3Cg stroke='%23000' stroke-width='66.7' stroke-opacity='0.05' %3E%3Ccircle fill='%23ff9d00' cx='0' cy='0' r='1800'/%3E%3Ccircle fill='%23fb8d17' cx='0' cy='0' r='1700'/%3E%3Ccircle fill='%23f47d24' cx='0' cy='0' r='1600'/%3E%3Ccircle fill='%23ed6e2d' cx='0' cy='0' r='1500'/%3E%3Ccircle fill='%23e35f34' cx='0' cy='0' r='1400'/%3E%3Ccircle fill='%23d85239' cx='0' cy='0' r='1300'/%3E%3Ccircle fill='%23cc453e' cx='0' cy='0' r='1200'/%3E%3Ccircle fill='%23be3941' cx='0' cy='0' r='1100'/%3E%3Ccircle fill='%23b02f43' cx='0' cy='0' r='1000'/%3E%3Ccircle fill='%23a02644' cx='0' cy='0' r='900'/%3E%3Ccircle fill='%23901e44' cx='0' cy='0' r='800'/%3E%3Ccircle fill='%23801843' cx='0' cy='0' r='700'/%3E%3Ccircle fill='%236f1341' cx='0' cy='0' r='600'/%3E%3Ccircle fill='%235e0f3d' cx='0' cy='0' r='500'/%3E%3Ccircle fill='%234e0c38' cx='0' cy='0' r='400'/%3E%3Ccircle fill='%233e0933' cx='0' cy='0' r='300'/%3E%3Ccircle fill='%232e062c' cx='0' cy='0' r='200'/%3E%3Ccircle fill='%23210024' cx='0' cy='0' r='100'/%3E%3C/g%3E%3C/svg%3E") !important;
+	background-attachment: fixed !important;
+	background-size: cover !important;
+	transition: body 0.5ms ease-in !important;
+}
+
+.resume-profiles {
+	display: flex;
+}
+
+.resume-profiles div {
+	margin: 10px;
+}
+
+main {
+	height: 100%;
+}
+
+.orange {
+	background: orange;
+	width: 110%;
+}
+
+.grad {
+	background: var(--g1);
+
+}
+
+.label {
+	box-shadow: 4px 7px 10px rgba(0, 0, 0, 0.5);
+	font-size: 1.5rem;
+	color: white;
+}
+
+.label.grad {
+	text-align: left;
+	padding: 4px;
+}
+
+#skills ul {
+	display: flex;
+	margin-top: 30px;
+}
+
+#skills b ul li,
+company {
+	border: 1px solid purple;
+	border-radius: 10px;
+	padding: 5px;
+	color: purple;
+	margin: 7px;
+}
+
+#email:before {
+	content: "Email:";
+	font-weight: 900;
+}
+
+#phone:before {
+	content: "Phone:";
+	font-weight: 900;
+}
+
+.list li {
+	margin-top: 3px;
+}
+
+#name {
+	font-family: cursive;
+	text-align: center;
+}
+
+#jobtitle {
+	border: 2px solid white;
+	border-radius: 20px;
+	color: white !important;
+	font-size: 0.9rem;
+}
+
+#jobtitle span {
+	display: inline-block;
+}
+
+body {
+	margin: 0px;
+}
+
+
+/* Small Mobiles*/
+@media screen and (max-width:480px) {
+	#sidebar {
+		padding: 3px;
+	}
+
+	#jobtitle {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		min-width: 90%;
+	}
+
+	.vertical-divider:after {
+		content: "|";
+		display: none;
+	}
+
+	#email,
+	#phone {
+		text-align: left !important;
+		padding: 0px 1.5rem;
+	}
+
+	#email:before {
+		display: none;
+	}
+
+	#phone:before {
+		display: none;
+	}
+}
+
+/*Mobile to Tablet Break point */
+@media screen and (min-width: 481px)and (max-width: 767) {
+	#sidebar {
+		padding: 0px;
+	}
+
+	.contact {
+		min-width: 100%;
+		text-align: left !important;
+	}
+}
+
+/*Mobile */
+@media screen and (max-width:1023px) {
+	body {
+		margin: 0px;
+	}
+
+	main {
+		margin: 0px;
+		padding: 0px;
+	}
+
+	div#sidebar {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-content: center;
+		margin: 0px;
+		color: white;
+	}
+
+	#jobtitle {
+		font-family: monospace;
+		font-size: 1rem;
+		text-align: center;
+		align-self: center;
+		padding: 5px;
+	}
+
+	.contact {
+		width: 100%;
+		justify-content: space-between;
+	}
+
+	#jobtitle {
+		max-width: max-content;
+		filter: brightness(1.3);
+		color: black;
+	}
+
+	#name {
+		font-size: 1.4rem;
+		text-transform: uppercase;
+	}
+
+	.label:before {
+		content: "+";
+		font-weight: 900;
+		position: relative;
+		right: 100%;
+	}
+
+	.label {
+		width: 100%;
+	}
+
+	#pic {
+		margin: auto;
+		width: 100px;
+		height: 100px;
+		border-radius: 50%;
+		border: 2px solid white;
+		box-shadow: 2px 5px 15px;
+	}
+
+	#pic img {
+		margin: auto;
+		width: inherit;
+		border-radius: 50%;
+	}
+
+	#aboutme,
+	#interest {
+		background: inherit;
+	}
+
+	/*Main*/
+
+	div#main {
+		border: 10px solid white;
+		background: white;
+		color: black;
+		width: 100%;
+		margin: 0px;
+	}
+
+	div.content {
+		display: block;
+		text-align: left;
+		position: relative;
+		top: 5px;
+		padding: 0px 1.5rem 1.5rem 1.5rem;
+
+	}
+
+	div.edu {
+		text-align: left;
+	}
+
+	div.sec {
+		font-weight: 900;
+		font-style: cursive;
+	}
+
+	.resume-profiles {
+		flex-direction: column;
+	}
+}
+
+/*Desktop */
+@media screen and (min-width:1024px) {
+	body {
+		margin: 0px;
+
+	}
+
+	main {
+		display: grid;
+		margin: 0px;
+		grid-template-columns: 45% auto;
+	}
+
+	div#sidebar {
+		display: flex;
+		justify-content: center;
+		flex-direction: column;
+		color: white;
+		max-width: 36%;
+		min-width: 350px;
+		min-height: 100vh;
+		max-height: 100%;
+		padding: 15px;
+		height: max-content;
+		position: relative;
+	}
+
+	div#main {
+		min-width: 450px;
+		max-width: 64%;
+		color: black;
+		background: white;
+		padding: 10px 50px;
+	}
+
+	.box {
+		display: flex;
+	}
+
+	.edu {
+		text-align: left;
+		flex-wrap: wrap;
+		display: flex;
+	}
+
+	.data {
+		text-align: center;
+		background: rgb(91, 169, 248);
+		padding: 10px;
+		margin: 10px;
+		border-radius: 15px;
+	}
+
+	.sec {
+		font-weight: 900;
+		text-decoration: underline;
+		color: purple;
+		text-align: left;
+		padding: 20px;
+		border-radius: 50%;
+		box-shadow: 10px 1px 10px #00000033;
+		border: 15px solid white;
+		background: dodgerblue;
+		width: min-content;
+	}
+
+	.content {
+		padding-top: 35px;
+		padding-bottom: 25px;
+		text-align: left;
+
+	}
+
+	.content.projects {
+		display: grid;
+		grid-template-columns: auto auto;
+	}
+
+	ul {
+		display: flex;
+		flex-wrap: wrap;
+	}
+
+	li {
+		display: block;
+		padding: 20px;
+	}
+
+	.label {
+		font-size: 2.5rem;
+	}
+
+	#name,
+	#jobtitle {
+		font-size: 1.3rem;
+		font-family: cursive;
+		text-align: center;
+	}
+
+	#email,
+	#phone {
+		font-size: 1rem;
+		font-family: monospace;
+	}
+
+	#pic {
+		margin: auto;
+		max-width: 250px;
+		min-width: 200px;
+		border-radius: 50%;
+		border: 2px solid white;
+		box-shadow: 2px 5px 15px;
+		padding: 10px;
+		position: relative;
+	}
+
+	#pic img {
+		margin: auto;
+		width: 100%;
+		border-radius: 50%;
+	}
+
+}

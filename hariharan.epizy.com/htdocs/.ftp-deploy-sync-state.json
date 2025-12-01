@@ -1,0 +1,75 @@
+{
+    "description": "DO NOT DELETE THIS FILE. This file is used to keep track of which files have been synced in the most recent deployment. If you delete this file a resync will need to be done (which can take a while) - read more: https://github.com/SamKirkland/FTP-Deploy-Action",
+    "version": "1.0.0",
+    "generatedTime": 1724784264496,
+    "data": [
+        {
+            "type": "folder",
+            "name": "C"
+        },
+        {
+            "type": "file",
+            "name": "README.md",
+            "size": 442,
+            "hash": "ea9bfe96be68eb730ce76f55317dd7755c71b031b144c13f10e39b2525823da9"
+        },
+        {
+            "type": "file",
+            "name": "SECURITY.md",
+            "size": 619,
+            "hash": "ba9643955bfcb04524a6fe5a8c2929b54abc2e67bb3480ce806e742d506e4dc9"
+        },
+        {
+            "type": "folder",
+            "name": "C/Extracts/Chapter 1"
+        },
+        {
+            "type": "folder",
+            "name": "C/Extracts/Chapter 10"
+        },
+        {
+            "type": "folder",
+            "name": "C/Extracts/Chapter 11"
+        },
+        {
+            "type": "folder",
+            "name": "C/Extracts/Chapter 12"
+        },
+        {
+            "type": "folder",
+            "name": "C/Extracts/Chapter 13"
+        },
+        {
+            "type": "folder",
+            "name": "C/Extracts/Chapter 2"
+        },
+        {
+            "type": "folder",
+            "name": "C/Extracts/Chapter 3"
+        },
+        {
+            "type": "folder",
+            "name": "C/Extracts/Chapter 4"
+        },
+        {
+            "type": "folder",
+            "name": "C/Extracts/Chapter 5"
+        },
+        {
+            "type": "folder",
+            "name": "C/Extracts/Chapter 6"
+        },
+        {
+            "type": "folder",
+            "name": "C/Extracts/Chapter 7"
+        },
+        {
+            "type": "folder",
+            "name": "C/Extracts/Chapter 8"
+        },
+        {
+            "type": "folder",
+            "name": "C/Extracts/Chapter 9"
+        }
+    ]
+}

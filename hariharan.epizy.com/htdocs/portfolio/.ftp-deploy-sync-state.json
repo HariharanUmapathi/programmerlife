@@ -1,0 +1,49 @@
+{
+    "description": "DO NOT DELETE THIS FILE. This file is used to keep track of which files have been synced in the most recent deployment. If you delete this file a resync will need to be done (which can take a while) - read more: https://github.com/SamKirkland/FTP-Deploy-Action",
+    "version": "1.0.0",
+    "generatedTime": 1760951897717,
+    "data": [
+        {
+            "type": "file",
+            "name": "404.html",
+            "size": 1808,
+            "hash": "b77b97fe780d35d18248abd1d2f42f444afbabe43f6abcd8fa8ebb3d47825eee"
+        },
+        {
+            "type": "file",
+            "name": "index.html",
+            "size": 229,
+            "hash": "a1ec59aba97b7120b1f750a94b0dbfd0a2968db7a05f8b0ebdabecebdaeab511"
+        },
+        {
+            "type": "file",
+            "name": "google7a4e0634d22b5119.html",
+            "size": 53,
+            "hash": "ed0974ae84adb502f3e33e0881f42f1459353774cc74e950fa7e0cb8a2ad018b"
+        },
+        {
+            "type": "file",
+            "name": "resume.html",
+            "size": 14954,
+            "hash": "50e52527dc4612ed8322808f988333cd080c4e6d831b8480ce2e9948a814040d"
+        },
+        {
+            "type": "file",
+            "name": "robots.txt",
+            "size": 0,
+            "hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+            "type": "file",
+            "name": "sitemap.xml",
+            "size": 769,
+            "hash": "76cd1e21c679fc61a3d4d39d3c61495e47126e59bfb11347fb838849630edc72"
+        },
+        {
+            "type": "file",
+            "name": "stylesheet.css",
+            "size": 6501,
+            "hash": "c2b20448186837cf869a1914c7f7154b1ba2316de0bd85e031b42324b8dd4675"
+        }
+    ]
+}
