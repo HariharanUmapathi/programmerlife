@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C.W.C Godown </title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.1/css/bootstrap.min.css" integrity="sha512-Ez0cGzNzHR1tYAv56860NLspgUGuQw16GiOOp/I2LuTmpSK9xDXlgJz3XN4cnpXWDmkNBKXR/VDMTCnAaEooxA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.10.0/css/bootstrap-datepicker.min.css" integrity="sha512-34s5cpvaNG3BknEWSuOncX28vz97bRI59UnVtEEpFX536A7BtZSJHsDyFoCl8S7Dt2TPzcrCEoHBGeM4SUBDBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.1/js/bootstrap.min.js" integrity="sha512-EKWWs1ZcA2ZY9lbLISPz8aGR2+L7JVYqBAYTq5AXgBkSjRSuQEGqWx8R1zAX16KdXPaCjOCaKE8MCpU0wcHlHA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.10.0/js/bootstrap-datepicker.min.js" integrity="sha512-LsnSViqQyaXpD4mBBdRYeP6sRwJiJveh2ZIbW41EBrNmKxgr/LFZIiWT6yr+nycvhvauz8c2nYMhrP80YhG7Cw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+</head>
+
+<body>
+    <style>
+        #rice-variety table.pdf-content {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        input {
+            border: none;
+
+        }
+
+        .text-right {
+            text-align: right;
+        }
+    </style>
+    <section id='rice-variety'>
+        <h1 style='text-align:center;'>CWC, Kumbakonam</h1>
+        <table border='1' class='pdf-content table bordered'>
+            <tr>
+                <th colspan='2' style='text-align:left;'>
+                    <input class='form-control' type="text" name="name" id="" style='width:100%'>
+                </th>
+                <th colspan='2'><input class='form-control' type="text" data-toggle="datepicker" data-provide='' name="date_field" id=""></th>
+            </tr>
+            <tr>
+                <th>Variety</th>
+                <th align='right' class='text-center'>RPA</th>
+                <th align='right' class='text-center'>RPC</th>
+            </tr>
+            <tr>
+                <td>OB</td>
+                <td align='right'><input type="number" class='form-control text-right' name="rpa_ob" id="" tabindex="1"></td>
+                <td align='right'><input type="number" class='form-control text-right' name="rpc_ob" id="" tabindex="5"></td>
+            </tr>
+            <tr>
+                <td>Receipt</td>
+                <td align='right'><input type="text" class='form-control text-right' name="rpa_receipt" id="" onfocusout="calculateTotalRpa()" tabindex="2"></td>
+                <td align='right'><input type="text" class='form-control text-right' name="rpc_receipt" id="" onfocusout="calculateTotalRpc()" tabindex="6"></td>
+            </tr>
+            <tr>
+                <td>Total</td>
+                <td align='right'><input type="number" class='form-control text-right' name="rpa_total" id="" tabindex="3"></td>
+                <td align='right'><input type="number" class='form-control text-right' name="rpc_total" id="" tabindex="7"></td>
+            </tr>
+            <tr>
+                <td>Issues</td>
+                <td align='right'><input type="text" class='form-control text-right' name="rpa_issues" id="" onfocusout="calculateClosingRpa()" tabindex="4"></td>
+                <td align='right'><input type="text" class='form-control text-right' name="rpc_issues" id="" onfocusout="calculateClosingRpc()" tabindex="8"></td>
+            </tr>
+            <tr>
+                <td>CB</td>
+                <td align='right'><input class='form-control text-right' type="text" name="rpa_cb" id=""></td>
+                <td align='right'><input class='form-control text-right' type="text" name="rpc_cb" id=""></td>
+            </tr>
+        </table>
+        <div class='d-flex flex-column'>
+            <input id="ignorePDF" type="submit" class='btn btn-primary' value="Generate PDF" onclick="convertHTMLtoPDF()" tabindex="9">
+        </div>
+    </section>
+
+
+
+    </form>
+    <script>
+        function calculateTotalRpa() {
+            let rpa_ob = $("[name='rpa_ob']").val();
+            let rpa_receipt = $("[name='rpa_receipt']").val();
+            if (rpa_receipt == "Nil") rpa_receipt = 0;
+            let rpa_total = rpa_ob - (-rpa_receipt)
+            $("[name='rpa_total']").val(rpa_total)
+        }
+
+        function calculateTotalRpc() {
+            let rpc_ob = $("[name='rpc_ob']").val();
+            let rpc_receipt = $("[name='rpc_receipt']").val();
+            if (rpc_receipt == "Nil" || rpc_receipt == "") rpc_receipt = 0;
+            let rpc_total = rpc_ob - (-rpc_receipt)
+            $("[name='rpc_total']").val(rpc_total)
+        }
+
+        function calculateClosingRpa() {
+            let rpa_total = $("[name='rpa_total']").val();
+            let rpa_issues = $("[name='rpa_issues']").val();
+            if (rpa_issues == "Nil") rpa_issues = 0;
+            let rpa_cb = rpa_total - (rpa_issues)
+            if (rpa_cb == 0) rpa_cb = "Nil"
+            $("[name='rpa_cb']").val(rpa_cb)
+        }
+
+        function calculateClosingRpc() {
+            let rpc_total = $("[name='rpc_total']").val();
+            let rpc_issues = $("[name='rpc_issues']").val();
+            if (rpc_issues == "Nil") rpc_issues = 0;
+            let rpc_cb = rpc_total - (rpc_issues)
+            if (rpc_cb == 0) rpc_cb = "Nil"
+            $("[name='rpc_cb']").val(rpc_cb)
+        }
+        $("[data-toggle='datepicker']").datepicker({
+            format: "dd/mm/yyyy",
+            todayHighlight: true,
+            autoclose: true
+        });
+
+        function convertHTMLtoPDF() {
+            const {
+                jsPDF
+            } = window.jspdf;
+
+            let doc = new jsPDF('p', 'px', [800, 1000]);
+            let pdfjs = document.querySelector('#rice-variety');
+            $("#ignorePDF").hide();
+            doc.html(pdfjs, {
+                callback: function(doc) {
+                    let pageCount = doc.internal.getNumberOfPages();
+                    while (pageCount > 2) {
+                        pageCount = doc.internal.getNumberOfPages()
+                        console.log(pageCount);
+                        doc.deletePage(pageCount);
+                    }
+
+                    doc.save("ricevariety.pdf");
+                    $("#ignorePDF").show();
+                },
+                x: 250,
+                y: 10
+            });
+        }
+    </script>
+
+</body>
+
+</html>
