@@ -1,0 +1,10 @@
+<?PHP
+$GLOBALS["routes"]=[
+["GET","api/feedbacks","FeedbackController","index"],
+["POST","api/user/auth","UserController","auth"],
+["GET","api/services","ServiceController"],
+["POST","api/quote/new","QuoteController","create"],
+["GET","api/token/test","UserController","test"],
+["GET","api/dashboard/data","DashboardController","index"]
+];
+?>

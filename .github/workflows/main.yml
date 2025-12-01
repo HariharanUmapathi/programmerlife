@@ -41,5 +41,8 @@ jobs:
             **/.github*
             **/.git*/**
             **/Python*/**
+            **/api.hariharan.epizy.com/**
+            **/projects.hariharan.epizy.com/**
+            
           
         
