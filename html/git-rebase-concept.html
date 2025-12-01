@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Git Sync: A Visual Guide</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F5F5F5;
+        }
+        .card {
+            background-color: white;
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        .flow-box {
+            border: 2px solid #BFD7EA;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            text-align: center;
+            background-color: #ffffff;
+            min-width: 120px;
+        }
+        .arrow {
+            font-size: 2rem;
+            color: #087E8B;
+            align-self: center;
+            margin: 0 1rem;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 24rem;
+            max-height: 500px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 28rem;
+            }
+        }
+        .command {
+            background-color: #0B3954;
+            color: #BFD7EA;
+            padding: 0.25rem 0.75rem;
+            border-radius: 0.375rem;
+            font-family: monospace;
+            font-size: 0.9rem;
+            white-space: nowrap;
+        }
+        .commit-node {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #087E8B;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 0.75rem;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+        .ref-box {
+            background-color: #BFD7EA;
+            color: #0B3954;
+            padding: 0.25rem 0.5rem;
+            border-radius: 0.25rem;
+            font-size: 0.8rem;
+            white-space: nowrap;
+        }
+        .history-line {
+            height: 2px;
+            width: 2rem;
+            background-color: #BFD7EA;
+        }
+    </style>
+</head>
+<body class="text-[#0B3954]">
+
+    <div class="container mx-auto p-4 md:p-8">
+
+        <header class="text-center mb-12">
+            <h1 class="text-4xl md:text-5xl font-bold text-[#0B3954] mb-2">Mastering Git Sync</h1>
+            <p class="text-lg text-[#087E8B]">A Visual Guide to Keeping Your Code Aligned Across Repositories</p>
+        </header>
+
+        <section class="card">
+            <h2 class="text-2xl font-bold mb-4 text-center">The Synchronization Challenge</h2>
+            <p class="text-center text-gray-600 mb-6">In modern development, code lives in multiple places at once. The core challenge is keeping your local machine, your personal fork, and the original project repository perfectly in sync. This infographic breaks down how to manage this flow effectively.</p>
+            <div class="flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-4">
+                <div class="flow-box">
+                    <h3 class="font-bold">💻 Your Local Repo</h3>
+                    <p class="text-sm text-gray-500">Code on your machine</p>
+                </div>
+                <div class="arrow">↔</div>
+                <div class="flow-box">
+                    <h3 class="font-bold">🍴 Origin (Your Fork)</h3>
+                    <p class="text-sm text-gray-500">Your copy on GitHub/GitLab</p>
+                </div>
+                <div class="arrow">↔</div>
+                <div class="flow-box">
+                    <h3 class="font-bold">🌍 Upstream (Original Repo)</h3>
+                    <p class="text-sm text-gray-500">The main project</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="card">
+            <h2 class="text-2xl font-bold mb-6 text-center">The Synchronization Workflow</h2>
+            <p class="text-center text-gray-600 mb-8">Syncing is a two-part process. First, you update your fork from the main project (Upstream). Then, you update your local machine from your fork (Origin). Following these steps prevents merge conflicts and keeps your branches clean.</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-gray-50 p-6 rounded-lg">
+                    <h3 class="text-xl font-semibold mb-4 text-[#087E8B]">1. Syncing Fork from Upstream</h3>
+                    <p class="text-sm text-gray-600 mb-4">Pull the latest changes from the original project into your fork.</p>
+                    <div class="space-y-3">
+                        <div class="flex items-center"><span class="command mr-3">git fetch upstream</span><span>📥 Fetch branches</span></div>
+                        <div class="text-2xl ml-4 text-[#BFD7EA]">↓</div>
+                        <div class="flex items-center"><span class="command mr-3">git checkout main</span><span>🔄 Switch to main</span></div>
+                         <div class="text-2xl ml-4 text-[#BFD7EA]">↓</div>
+                        <div class="flex items-center"><span class="command mr-3">git merge upstream/main</span><span>🤝 Merge changes</span></div>
+                         <div class="text-2xl ml-4 text-[#BFD7EA]">↓</div>
+                        <div class="flex items-center"><span class="command mr-3">git push origin main</span><span>📤 Push to your fork</span></div>
+                    </div>
+                </div>
+                <div class="bg-gray-50 p-6 rounded-lg">
+                    <h3 class="text-xl font-semibold mb-4 text-[#087E8B]">2. Syncing Local from Origin</h3>
+                    <p class="text-sm text-gray-600 mb-4">Update your local machine with the latest code from your fork.</p>
+                    <div class="space-y-3">
+                        <div class="flex items-center"><span class="command mr-3">git fetch origin</span><span>📥 Fetch your fork</span></div>
+                        <div class="text-2xl ml-4 text-[#BFD7EA]">↓</div>
+                        <div class="flex items-center"><span class="command mr-3">git pull origin main</span><span>🤝 Pull and merge</span></div>
+                         <div class="text-2xl ml-4 text-[#BFD7EA]">↓</div>
+                         <div class="flex items-center"><span class="command mr-3">git push origin main</span><span>📤 Push local commits</span></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="card">
+            <h2 class="text-2xl font-bold mb-4 text-center">When Things Go Wrong: `git reset` Explained</h2>
+            <p class="text-center text-gray-600 mb-6">Sometimes your local repository gets messy. `git reset` is a powerful tool to fix it, but its different modes have very different impacts. This chart visualizes what each `reset` command actually changes.</p>
+            <div class="chart-container">
+                <canvas id="gitResetChart"></canvas>
+            </div>
+        </section>
+
+        <section>
+             <h2 class="text-2xl font-bold mb-6 text-center">Common Scenarios with Git Log Visuals</h2>
+             <p class="text-center text-gray-600 mb-8">Here's a visual breakdown of common sync problems and their solutions, showing how branches and commits relate before and after the fix.</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="bg-white rounded-lg shadow-md p-6 flex flex-col items-center">
+                    <h3 class="font-semibold text-lg mb-2 text-[#087E8B]">Fork Behind Upstream</h3>
+                    <p class="text-gray-600 text-sm mb-4 text-center">Your fork is missing commits from the original project.</p>
+                    <div class="flex items-center justify-center space-x-2 my-4">
+                        <div class="ref-box">origin/main</div>
+                        <div class="commit-node">C</div>
+                        <div class="history-line"></div>
+                        <div class="commit-node">B</div>
+                        <div class="history-line"></div>
+                        <div class="commit-node">A</div>
+                    </div>
+                    <div class="flex items-center justify-center space-x-2">
+                         <div class="ref-box bg-[#0B3954] text-white">upstream/main</div>
+                        <div class="commit-node">D</div>
+                        <div class="history-line"></div>
+                        <div class="commit-node">C</div>
+                        <div class="history-line"></div>
+                        <div class="commit-node">B</div>
+                        <div class="history-line"></div>
+                        <div class="commit-node">A</div>
+                    </div>
+                    <code class="command block mt-6 text-center">git fetch upstream && git merge upstream/main</code>
+                </div>
+                <div class="bg-white rounded-lg shadow-md p-6 flex flex-col items-center">
+                    <h3 class="font-semibold text-lg mb-2 text-[#087E8B]">Local Behind Remote</h3>
+                    <p class="text-gray-600 text-sm mb-4 text-center">Your local machine is missing commits from your fork.</p>
+                     <div class="flex items-center justify-center space-x-2 my-4">
+                        <div class="ref-box">main, HEAD</div>
+                        <div class="commit-node">B</div>
+                        <div class="history-line"></div>
+                        <div class="commit-node">A</div>
+                    </div>
+                    <div class="flex items-center justify-center space-x-2">
+                         <div class="ref-box bg-[#0B3954] text-white">origin/main</div>
+                        <div class="commit-node">C</div>
+                        <div class="history-line"></div>
+                        <div class="commit-node">B</div>
+                        <div class="history-line"></div>
+                        <div class="commit-node">A</div>
+                    </div>
+                    <code class="command block mt-6 text-center">git pull origin main</code>
+                </div>
+                <div class="bg-white rounded-lg shadow-md p-6 flex flex-col items-center">
+                    <h3 class="font-semibold text-lg mb-2 text-[#FF5A5F]">Local is a Mess (`--hard`)</h3>
+                    <p class="text-gray-600 text-sm mb-4 text-center">You have unwanted local commits. Your local repo is a mess.</p>
+                    <div class="flex items-center justify-center space-x-2 my-4">
+                        <div class="ref-box bg-[#FF5A5F] text-white">HEAD, main</div>
+                        <div class="commit-node">E</div>
+                        <div class="history-line"></div>
+                        <div class="commit-node">D</div>
+                        <div class="history-line"></div>
+                        <div class="commit-node">C</div>
+                    </div>
+                    <div class="flex items-center justify-center space-x-2">
+                        <div class="ref-box">origin/main</div>
+                        <div class="commit-node">C</div>
+                        <div class="history-line"></div>
+                        <div class="commit-node">B</div>
+                        <div class="history-line"></div>
+                        <div class="commit-node">A</div>
+                    </div>
+                    <code class="command block mt-6 text-center bg-[#FF5A5F] text-white">git reset --hard origin/main</code>
+                </div>
+                <div class="bg-white rounded-lg shadow-md p-6 flex flex-col items-center">
+                    <h3 class="font-semibold text-lg mb-2 text-[#087E8B]">Undo Commit (`--soft`)</h3>
+                    <p class="text-gray-600 text-sm mb-4 text-center">Undo the last commit, but keep the changes staged and ready.</p>
+                     <div class="flex items-center justify-center space-x-2 my-4">
+                        <div class="ref-box">HEAD, main</div>
+                        <div class="commit-node">C</div>
+                        <div class="history-line"></div>
+                        <div class="commit-node">B</div>
+                        <div class="history-line"></div>
+                        <div class="commit-node">A</div>
+                    </div>
+                    <div class="flex items-center justify-center space-x-2">
+                        <div class="ref-box bg-[#BFD7EA] text-[#0B3954]">New HEAD</div>
+                        <div class="commit-node">B</div>
+                        <div class="history-line"></div>
+                        <div class="commit-node">A</div>
+                    </div>
+                    <code class="command block mt-6 text-center">git reset --soft HEAD~1</code>
+                </div>
+                 <div class="bg-white rounded-lg shadow-md p-6 flex flex-col items-center">
+                    <h3 class="font-semibold text-lg mb-2 text-[#087E8B]">Undo Commit (mixed/default)</h3>
+                    <p class="text-gray-600 text-sm mb-4 text-center">Undo the last commit and unstage the changes for editing.</p>
+                     <div class="flex items-center justify-center space-x-2 my-4">
+                        <div class="ref-box">HEAD, main</div>
+                        <div class="commit-node">C</div>
+                        <div class="history-line"></div>
+                        <div class="commit-node">B</div>
+                        <div class="history-line"></div>
+                        <div class="commit-node">A</div>
+                    </div>
+                    <div class="flex items-center justify-center space-x-2">
+                        <div class="ref-box bg-[#BFD7EA] text-[#0B3954]">New HEAD</div>
+                        <div class="commit-node">B</div>
+                        <div class="history-line"></div>
+                        <div class="commit-node">A</div>
+                    </div>
+                    <code class="command block mt-6 text-center">git reset HEAD~1</code>
+                </div>
+            </div>
+        </section>
+
+        <section class="card mt-8">
+            <h2 class="text-2xl font-bold mb-4 text-center">Visualizing Commit IDs & References</h2>
+            <p class="text-center text-gray-600 mb-6">Every commit is a snapshot of your repository, identified by a unique ID. Branches and the `HEAD` pointer are just labels that point to a specific commit, allowing you to move through your project history.</p>
+            <div class="flex flex-col items-center justify-center">
+                <div class="flex items-center mb-6">
+                    <div class="ref-box mr-4">HEAD, main</div>
+                    <div class="text-4xl text-[#FF5A5F]">↓</div>
+                </div>
+                <div class="flex flex-row items-center justify-center space-x-12">
+                    <div class="flex flex-col items-center">
+                        <div class="commit-node">9b1c</div>
+                        <p class="text-sm text-gray-500 mt-2">Commit 3</p>
+                    </div>
+                    <div class="text-4xl text-[#087E8B]">←</div>
+                    <div class="flex flex-col items-center">
+                        <div class="commit-node">a2f6</div>
+                        <p class="text-sm text-gray-500 mt-2">Commit 2</p>
+                    </div>
+                    <div class="text-4xl text-[#087E8B]">←</div>
+                    <div class="flex flex-col items-center">
+                        <div class="commit-node">d4c8</div>
+                        <p class="text-sm text-gray-500 mt-2">Commit 1</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <footer class="text-center mt-12 py-4">
+            <p class="text-sm text-gray-500">Git Sync Infographic | A Canvas Infographics Creation</p>
+        </footer>
+
+    </div>
+
+    <script>
+        const ctx = document.getElementById('gitResetChart');
+
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Commit History (HEAD)', 'Staging Area', 'Working Directory'],
+                datasets: [
+                    {
+                        label: 'git reset --soft',
+                        data: [1, 0, 0],
+                        backgroundColor: '#BFD7EA',
+                        borderColor: '#BFD7EA',
+                        borderWidth: 1
+                    },
+                    {
+                        label: 'git reset (mixed)',
+                        data: [1, 1, 0],
+                        backgroundColor: '#087E8B',
+                        borderColor: '#087E8B',
+                        borderWidth: 1
+                    },
+                    {
+                        label: 'git reset --hard',
+                        data: [1, 1, 1],
+                        backgroundColor: '#FF5A5F',
+                        borderColor: '#FF5A5F',
+                        borderWidth: 1
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'Impact of Git Reset Commands (1 = Affected, 0 = Unaffected)',
+                        font: { size: 16 },
+                        color: '#0B3954',
+                        padding: { bottom: 20 }
+                    },
+                    tooltip: {
+                        callbacks: {
+                            title: function(tooltipItems) {
+                                const item = tooltipItems[0];
+                                let label = item.chart.data.labels[item.dataIndex];
+                                if (Array.isArray(label)) {
+                                  return label.join(' ');
+                                } else {
+                                  return label;
+                                }
+                            }
+                        }
+                    },
+                    legend: {
+                        position: 'top',
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        ticks: {
+                            stepSize: 1,
+                            callback: function(value) {
+                                return value === 1 ? 'Affected' : 'Unaffected';
+                            }
+                        },
+                        grid: {
+                            display: false
+                        }
+                    },
+                    x: {
+                         grid: {
+                            display: false
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
